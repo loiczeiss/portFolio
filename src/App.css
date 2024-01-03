@@ -1,0 +1,129 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#root{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.page{
+  width: 100%;
+  height: 100%;
+  background-color:hsl(231, 32%, 91%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme{
+  display: flex;
+  align-self: flex-end;
+  writing-mode: vertical-lr;
+}
+
+.theme div {
+  display: flex;
+  margin: 5px; /* Adjust margin between items as needed */
+  margin-bottom: 30px;
+  transform: rotate(180deg); /* Rotate each item 180 degrees to make the text readable */
+}
+
+.theme p{
+  margin: 0;
+  font-family: neueMontreal;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid black;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+/* input[type="checkbox"]:checked {
+  background-color: black;
+} */
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  border: 1.2px black solid;
+  width: calc(100% - 120px); /* Adjust the width to create even space on both sides */
+  height: calc(100% - 60px);
+  margin-right: 26.8px; /* Adjust the margin-left to account for the space taken by the .theme div */
+  padding-left: 20px;
+  user-select: none;
+}
+
+h1{
+  font-family: neueMontrealLight;
+  font-size: 60px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+
+}
+
+.subTitle{
+  margin: 0px;
+  font-family: neueMontrealLight;
+}
+
+ul{
+  font-family: neueMontrealBold;
+  padding: 0;
+  list-style: none;
+  margin-top: 40px;
+
+}
+
+li{
+  padding-bottom: 5px;
+}
+
+a{
+  font-size: 14px;
+  text-decoration: none;
+
+}
+
+.presentationText {
+  align-self: flex-end;
+  margin-top: auto; /* Push the presentationText to the bottom of the column */
+  margin-bottom: 20px; /* Adjust as needed */
+  margin-left: 100px ;
+  font-size: 14px;
+  font-family: neueMontreal;
+}
+
+a:any-link{
+  color: #000;
+}
+
+a:hover{
+  color: rgb(194, 192, 189);
+}
+
+@media only screen and (max-width: 600px) {
+  h1{
+    font-size: 30px;
+  }
+  .frame {
+    width: 100%;
+  }
+  
+}
