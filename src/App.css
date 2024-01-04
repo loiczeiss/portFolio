@@ -1,20 +1,21 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
 }
 
-#root{
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
 }
-.page{
+.page {
   width: 100%;
   height: 100%;
-  background-color:hsl(231, 32%, 91%);
+  background-color: hsl(231, 32%, 91%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +23,7 @@ html, body {
   overflow: hidden;
 }
 
-.theme{
+.theme {
   display: flex;
   align-self: flex-end;
   writing-mode: vertical-lr;
@@ -32,16 +33,17 @@ html, body {
   display: flex;
   margin: 5px; /* Adjust margin between items as needed */
   margin-bottom: 30px;
-  transform: rotate(180deg); /* Rotate each item 180 degrees to make the text readable */
+  transform: rotate(
+    180deg
+  ); /* Rotate each item 180 degrees to make the text readable */
 }
 
-.theme p{
+.theme p {
   margin: 0;
   font-family: neueMontreal;
   font-size: 14px;
   text-transform: uppercase;
   margin-top: 5px;
-  
 }
 
 input[type="checkbox"] {
@@ -54,7 +56,6 @@ input[type="checkbox"] {
   outline: none;
   margin: 0;
   padding: 0;
-  
 }
 
 /* input[type="checkbox"]:checked {
@@ -73,9 +74,6 @@ input[type="checkbox"] {
   padding-left: 20px;
   user-select: none;
   z-index: 10;
-
-
-  
 }
 
 .vanta-container {
@@ -85,63 +83,60 @@ input[type="checkbox"] {
   width: 100%;
   height: 100%;
   z-index: -1;
-   /* Move it to the background */
- 
+  /* Move it to the background */
 }
 
-h1{
+h1 {
   font-family: neueMontrealLight;
   font-size: 60px;
   margin-top: 20px;
   margin-bottom: 5px;
-
 }
 
-.subTitle{
+.subTitle {
   margin: 0px;
   font-family: neueMontrealLight;
 }
 
-ul{
+ul {
   font-family: neueMontrealBold;
   padding: 0;
   list-style: none;
   margin-top: 40px;
-
 }
 
-li{
+li {
   padding-bottom: 5px;
 }
 
-a{
+a {
   font-size: 14px;
   text-decoration: none;
-
 }
 
-.content{
-display: flex;
+.content {
+  display: flex;
   align-self: flex-start;
   margin-top: 80px;
   margin-right: 20px;
   max-height: calc(100% - 80px); /* Adjust max-height to fit within the frame */
   overflow-y: auto; /* Enable vertical scrolling when necessary */
-  
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
-.content_presentation{display: flex;
+.content_presentation {
+  display: flex;
   align-self: flex-end;
   width: 20%;
   margin-top: 80px;
   margin-right: 20px;
   max-height: calc(100% - 80px); /* Adjust max-height to fit within the frame */
   overflow-y: auto; /* Enable vertical scrolling when necessary */
-  
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */}
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 .content::-webkit-scrollbar {
   display: none;
 }
@@ -150,44 +145,39 @@ display: flex;
   align-self: flex-end;
   margin-top: auto; /* Push the presentationText to the bottom of the column */
   margin-bottom: 20px; /* Adjust as needed */
-  margin-left: 100px ;
+  margin-left: 100px;
   font-size: 14px;
   font-family: neueMontreal;
 }
 
-a:any-link{
+a:any-link {
   color: #000;
 }
 
-a:hover{
+a:hover {
   color: rgb(194, 192, 189);
 }
-.Projects{
+.Projects {
   text-align: end;
   font-family: neueMontreal;
   overflow-y: auto;
- 
-  
 }
-.project{
+.project {
   text-align: end;
   font-size: 14px;
   margin-right: 20px;
-
 }
-.project_title{
+.project_title {
   margin-top: 20px;
   font-size: 75px;
   margin-right: 20px;
- 
-
 }
-.project_info{
+.project_info {
   text-align: end;
   margin-right: 20px;
 }
 
-.info{
+.info {
   align-self: center;
   display: flex;
   flex-direction: column;
@@ -196,12 +186,12 @@ a:hover{
   font-size: 30px;
 }
 
-.infoLink{
+.infoLink {
   font-size: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.infoLink_div{
+.infoLink_div {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -210,10 +200,10 @@ a:hover{
 /* svg:hover{
   fill: rgb(194, 192, 189);
 } */
-svg{
+svg {
   fill: #000;
 }
-.contact_div{
+.contact_div {
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -223,47 +213,49 @@ svg{
   text-transform: uppercase;
   text-align: end;
 }
-.contact_link{
+.contact_link {
   font-family: neueMontrealLight;
   font-size: 30px;
 }
+
+.pageLinks:hover{
+  color:rgb(194, 192, 189) ;
+}
 @media only screen and (max-width: 600px) {
-  h1{
+  h1 {
     font-size: 30px;
   }
   .frame {
     width: 100%;
     flex-direction: column;
   }
-  .contact_div{
+  .contact_div {
     align-self: flex-end;
     font-size: 14px;
     margin-bottom: 20px;
   }
-    .contact_link{
-      font-family: neueMontrealLight;
-      font-size: 15px;
-    }
-    svg{
-      width: 14px;
-    }
-    .infoLink{
-      font-size: 14px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      
-    }
-    .info{
+  .contact_link {
+    font-family: neueMontrealLight;
+    font-size: 15px;
+  }
+  svg {
+    width: 14px;
+  }
+  .infoLink {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .info {
     align-self: flex-end;
-   
-    }
-    .project_title{
-      font-size: 20px;
-    }
-    .project_info{
-      font-size: 10px;
-    }
-    .projectDiv{
-      margin-bottom: 20px;
-    }
+  }
+  .project_title {
+    font-size: 20px;
+  }
+  .project_info {
+    font-size: 10px;
+  }
+  .projectDiv {
+    margin-bottom: 20px;
+  }
 }

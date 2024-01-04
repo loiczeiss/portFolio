@@ -8,30 +8,65 @@ import Info from "./Info";
 import Contact from "./Contact";
 
 export default function Home() {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
+  const [vantaChange, setVantaChange] = useState('points: 10.0')
+const [vantaColor, setVantaColor] = useState(' 0x000')
   useEffect(() => {
-    if (!vantaEffect) {
-      setVantaEffect(
-        NET({
-          el: myRef.current,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          color: 0x000,
-          backgroundColor: 0xe1e3ef,
-          points: 10.0,
-          maxDistance: 14.0,
-          spacing: 10.0,
-        })
-      );
-    }
+    // Create a function to initialize the Vanta effect
+    const initVantaEffect = () => {
+      setVantaEffect(NET({
+    el: myRef.current,
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.0,
+    minWidth: 200.0,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    color: 0x000,
+    backgroundColor: 0xe1e3ef,
+    vantaChange,
+    maxDistance: 14.0,
+    spacing: 10.0,
+      }));
+    };
 
-  }, [vantaEffect]);
+    // Initialize the Vanta effect when the component mounts
+    initVantaEffect();
+
+    // Cleanup function to destroy the Vanta effect when the component unmounts
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, []); // Run this effect only once when the component mounts
+
+  useEffect(() => {
+    // Check if vantaEffect is already set and if the vantaChange settings have changed
+    if (vantaEffect && myRef.current && (vantaChange || vantaColor)) {
+      // Destroy the existing Vanta effect
+      vantaEffect.destroy();
+  
+      // Create a new Vanta effect with the updated settings
+      setVantaEffect(NET({
+        el: myRef.current,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: vantaColor , // Parse the color string to an integer
+        backgroundColor: 0xe1e3ef,
+       vantaChange, // Spread the vantaChange object
+        maxDistance: 14.0,
+        spacing: 10.0,
+      }));
+    }
+  }, [vantaChange, vantaColor]); // Run this effect whenever vantaChang
+
   return (
     <div className="frame">
       <div className="vanta-container" ref={myRef}></div>
@@ -42,25 +77,49 @@ export default function Home() {
         </header>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <p 
+            onClick={() => {
+              setActiveIndex(0);setVantaChange('points: 10.0'); setVantaColor('0x000')
+              
+            }}
+            className="pageLinks">Home</p>
           </li>
           <li>
-            <Link to="/Projects">Projects</Link>
+            <p
+              onClick={() => {
+                setActiveIndex(1);setVantaChange('points: 20.0,color: 0x631b34')
+              }}
+              className="pageLinks"
+            >
+              Projects
+            </p>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <p
+              onClick={() => {
+                setActiveIndex(2);setVantaChange('points: 20.0,color: 0xfff'), console.log(vantaColor)
+              }}
+              className="pageLinks"
+            >
+              About
+            </p>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <p
+              onClick={() => {
+                setActiveIndex(3);setVantaChange('points: 30.0')
+              }}
+              className="pageLinks"
+            >
+              Contact
+            </p>
           </li>
         </ul>
       </div>
-      {/* <Info/> */}
-      
-        {/* <Contact/> */}
-        {/* <Projects /> */}
-        <Presentation/>
-      </div>
-    
+      {activeIndex === 0 && <Presentation />}
+      {activeIndex === 1 && <Projects />}
+      {activeIndex === 2 && <Info />}
+      {activeIndex === 3 && <Contact />}
+    </div>
   );
 }
