@@ -2,29 +2,45 @@ import React from "react";
 
 function Projects() {
   return (
-    <div>
+  <div className="content">
+    <div className="projectDiv">
       <ul>
         <li className="project">■ Projects</li>
       </ul>
 
-      <ul>
-        <li>
+      
           <a
             className="Projects"
-            href="https://github.com/loiczeiss/RetroPokedex"
+            href="https://loiczeiss.github.io/RetroPokedex/"
           >
             <div className="project_title">RetroPokedex</div>
+            <div className="project_info">2023/Reactjs/Tailwindcss/GraphQL</div>
+          </a>
+          <a
+            className="Projects"
+            href="https://loiczeiss.github.io/weatherapp/"
+          >
+            <div className="project_title">Weather App but a cool one...</div>
+            <div className="project_info">2022/Reactjs/Tailwindcss/Axios/RestAPI</div>
+          </a>
+          <a
+            className="Projects"
+            href="https://loiczeiss.github.io/AgeCalculator/"
+          >
+            <div className="project_title">Age Calculator</div>
             <div className="project_info">2023/Reactjs/Tailwindcss</div>
           </a>
           <a
             className="Projects"
-            href="https://github.com/loiczeiss/RetroPokedex"
+            href="https://loiczeiss.github.io/HangManGoT/"
           >
-            <div className="project_title">RetroPokedex</div>
-            <div className="project_info">2023/Reactjs/Tailwindcss</div>
+            <div className="project_title">GoT HangMan</div>
+            <div className="project_info">2022/Reactjs/PureCss</div>
           </a>
-        </li>
-      </ul>
+    
+          
+      
+    </div>
     </div>
   );
 }
