@@ -1,33 +1,39 @@
 import "../App.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import NET from 'vanta/dist/vanta.net.min'
+import NET from "vanta/dist/vanta.net.min.js";
+import Presentation from "./Presentation";
+import Projects from "./Projects";
+
 export default function Home() {
-    const [vantaEffect, setVantaEffect] = useState(null)
-    const myRef = useRef(null)
-    useEffect(() => {
-      if (!vantaEffect) {
-        setVantaEffect(NET({
-          el: myRef.current,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-          color: 0xdbb8b8,
-          backgroundColor: 0x837a9a,
-          points: 10.00,
-          maxDistance: 14.00,
-          spacing: 10.00
-        }))
-      }
-    
-    }, [vantaEffect])
+  // const [vantaEffect, setVantaEffect] = useState(null);
+  // const myRef = useRef(null);
+  // useEffect(() => {
+  //   if (!vantaEffect) {
+  //     setVantaEffect(
+  //       NET({
+  //         el: myRef.current,
+  //         mouseControls: true,
+  //         touchControls: true,
+  //         gyroControls: false,
+  //         minHeight: 200.0,
+  //         minWidth: 200.0,
+  //         scale: 1.0,
+  //         scaleMobile: 1.0,
+  //         color: 0x000,
+  //         backgroundColor: 0xe1e3ef,
+  //         points: 10.0,
+  //         maxDistance: 14.0,
+  //         spacing: 10.0,
+  //       })
+  //     );
+  //   }
+   
+  // }, [vantaEffect]);
   return (
-    <div className="frame" ref={myRef}>
-      <header className="siteHeader">
+    <div className="frame">
+        {/* <div className="vanta-container" ref={myRef}></div> */}
+      <div className="GenInfo"><header className="siteHeader">
         <h1>Loïc Zeiss</h1>
         <p className="subTitle">Front-End Developer</p>
       </header>
@@ -44,9 +50,10 @@ export default function Home() {
         <li>
           <Link to="/contact">Contact</Link>
         </li>
-      </ul>
-      <div className="presentationText"><p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, recusandae maiores cum repellendus magni incidunt sunt assumenda ullam, atque corporis debitis nostrum maxime distinctio perferendis eaque at! Explicabo, non quia.</p></div>
-
+      </ul></div>
+     <div className="content"> <Projects/>
+      {/* <Presentation/> */}
+    </div>
     </div>
   );
 }
