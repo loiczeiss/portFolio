@@ -12,6 +12,7 @@ function Projects() {
           <a
             className="Projects"
             href="https://loiczeiss.github.io/RetroPokedex/"
+            style={{color: "white"}}
           >
             <div className="project_title">RetroPokedex</div>
             <div className="project_info">2023/Reactjs/Tailwindcss/GraphQL</div>

@@ -7,16 +7,15 @@ import Projects from "./Projects";
 import Info from "./Info";
 import Contact from "./Contact";
 
-export default function Home() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [vantaEffect, setVantaEffect] = useState(null);
+export default function Home({effect, setEffect, handleClick}) {
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  
   const myRef = useRef(null);
-  // const [vantaChange, setVantaChange] = useState('points: 10.0')
-  const [vantaColor, setVantaColor] = useState(" 0x000");
+
 
   useEffect(() => {
-    if (!vantaEffect) {
-      setVantaEffect(
+    if (!effect) {
+      setEffect(
         NET({
           el: myRef.current,
           mouseControls: true,
@@ -26,7 +25,7 @@ export default function Home() {
           minWidth: 200.0,
           scale: 1.0,
           scaleMobile: 1.0,
-          color:  0x000000,
+          color: 0x655f5f,
           backgroundColor: 0xe1e3ef,
           points: 10.0,
           maxDistance: 14.0,
@@ -35,63 +34,12 @@ export default function Home() {
       );
     }
     return () => {
-      if (vantaEffect) vantaEffect.destroy();
+      if (effect) effect.destroy();
     };
-  }, [vantaEffect]);
-  // useEffect(() => {
-  //   // Create a function to initialize the Vanta effect
-  //   const initVantaEffect = () => {
-  //     setVantaEffect(NET({
-  //   el: myRef.current,
-  //   mouseControls: true,
-  //   touchControls: true,
-  //   gyroControls: false,
-  //   minHeight: 200.0,
-  //   minWidth: 200.0,
-  //   scale: 1.0,
-  //   scaleMobile: 1.0,
-  //   color: 0x000,
-  //   backgroundColor: 0xe1e3ef,
-  //   vantaChange,
-  //   maxDistance: 14.0,
-  //   spacing: 10.0,
-  //     }));
-  //   };
+  }, [effect]);
 
-  //   // Initialize the Vanta effect when the component mounts
-  //   initVantaEffect();
-  //   console.log(NET({el: myRef.current,}))
 
-  //   // Cleanup function to destroy the Vanta effect when the component unmounts
-  //   return () => {
-  //     if (vantaEffect) vantaEffect.destroy();
-  //   };
-  // }, []); // Run this effect only once when the component mounts
 
-  // useEffect(() => {
-  //   // Check if vantaEffect is already set and if the vantaChange settings have changed
-  //   if (vantaEffect && myRef.current && (vantaChange || vantaColor)) {
-  //     // Destroy the existing Vanta effect
-  //     vantaEffect.destroy();
-
-  //     // Create a new Vanta effect with the updated settings
-  //     setVantaEffect(NET({
-  //       el: myRef.current,
-  //       mouseControls: true,
-  //       touchControls: true,
-  //       gyroControls: false,
-  //       minHeight: 200.0,
-  //       minWidth: 200.0,
-  //       scale: 1.0,
-  //       scaleMobile: 1.0,
-  //       color: vantaColor , // Parse the color string to an integer
-  //       backgroundColor: 0xe1e3ef,
-  //      vantaChange, // Spread the vantaChange object
-  //       maxDistance: 14.0,
-  //       spacing: 10.0,
-  //     }));
-  //   }
-  // }, [vantaChange, vantaColor]); // Run this effect whenever vantaChang
 
   return (
     <div className="frame">
@@ -106,12 +54,11 @@ export default function Home() {
             <p
               onClick={() => {
                 setActiveIndex(0);
-                vantaEffect.setOptions({
-                  maxDistance: 18.0
-                });
-               
-                // setVantaChange('points: 10.0');
-                setVantaColor("0x000");
+                if (effect) {
+                  effect.setOptions({
+                    maxDistance: 18.0,
+                  });
+                }
               }}
               className="pageLinks"
             >
@@ -122,10 +69,11 @@ export default function Home() {
             <p
               onClick={() => {
                 setActiveIndex(1);
-                vantaEffect.setOptions({
-                  maxDistance: 22.0
-                });
-                // setVantaChange("points: 20.0,color: 0x631b34");
+                if (effect) {
+                  effect.setOptions({
+                    maxDistance: 22.0,
+                  });
+                }
               }}
               className="pageLinks"
             >
@@ -136,11 +84,11 @@ export default function Home() {
             <p
               onClick={() => {
                 setActiveIndex(2);
-                vantaEffect.setOptions({
-                  maxDistance: 26.0
-                });
-                // setVantaChange("points: 20.0,color: 0xfff"),
-                  console.log(vantaColor);
+                if (effect) {
+                  effect.setOptions({
+                    maxDistance: 26.0,
+                  });
+                }
               }}
               className="pageLinks"
             >
@@ -150,11 +98,11 @@ export default function Home() {
           <li>
             <p
               onClick={() => {
-                vantaEffect.setOptions({
-                  maxDistance: 30.0
-                });
-                // setActiveIndex(3);
-                // setVantaChange("points: 30.0");
+                if (effect)
+                  effect.setOptions({
+                    maxDistance: 30.0,
+                  });
+                setActiveIndex(3);
               }}
               className="pageLinks"
             >
@@ -163,10 +111,10 @@ export default function Home() {
           </li>
         </ul>
       </div>
-      {activeIndex === 0 && <Presentation />}
-      {activeIndex === 1 && <Projects />}
-      {activeIndex === 2 && <Info />}
-      {activeIndex === 3 && <Contact />}
+      {activeIndex === 0 && <Presentation handleClick={handleClick}/>}
+      {activeIndex === 1 && <Projects  handleClick={handleClick}/>}
+      {activeIndex === 2 && <Info  handleClick={handleClick} />}
+      {activeIndex === 3 && <Contact  handleClick={handleClick} />}
     </div>
   );
 }

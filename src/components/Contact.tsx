@@ -1,7 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function Contact() {
+function Contact({ handleClick}) {
+  useEffect(() => {
+    // This code will be executed when OtherComponent mounts
+    handleClick(); // Replace yourFunction with the actual function you want to execute
+  }, []);
     const [SVGstyle, setSVGstyle] = useState({});
   return (
     <div className="contact_div">
