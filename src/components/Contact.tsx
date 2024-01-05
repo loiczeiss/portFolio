@@ -1,12 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useMyContext } from "./MyContext";
 
-function Contact({ handleClick}) {
-  useEffect(() => {
-    // This code will be executed when OtherComponent mounts
-    handleClick(); // Replace yourFunction with the actual function you want to execute
-  }, []);
-    const [SVGstyle, setSVGstyle] = useState({});
+function Contact() {
+const { SVGstyle, setSVGstyle, isCheckedDark, handleClick} = useMyContext()
+
+useEffect(() => {
+  if (isCheckedDark) {
+    handleClick(true);
+  }
+}, [isCheckedDark]);
+
   return (
     <div className="contact_div">
       <p>Contact me on</p>

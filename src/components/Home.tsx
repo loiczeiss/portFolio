@@ -6,16 +6,21 @@ import Presentation from "./Presentation";
 import Projects from "./Projects";
 import Info from "./Info";
 import Contact from "./Contact";
-
-export default function Home({effect, setEffect, handleClick}) {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  
-  const myRef = useRef(null);
-
+import { useMyContext } from "./MyContext";
+export default function Home() {
+  const {
+    vantaEffect,
+    setVantaEffect,
+    myRef,
+    activeIndex,
+    setActiveIndex,
+    isCheckedDark,
+    handleClick,
+  } = useMyContext();
 
   useEffect(() => {
-    if (!effect) {
-      setEffect(
+    if (!vantaEffect) {
+      setVantaEffect(
         NET({
           el: myRef.current,
           mouseControls: true,
@@ -34,15 +39,22 @@ export default function Home({effect, setEffect, handleClick}) {
       );
     }
     return () => {
-      if (effect) effect.destroy();
+      if (vantaEffect) vantaEffect.destroy();
     };
-  }, [effect]);
+  }, [vantaEffect]);
 
-
-
+  useEffect(() => {
+    const border = document.getElementById("frame");
+    if (isCheckedDark) {
+    
+      border.style.border = "1px white solid";
+    } else {
+      border.style.border = '1px black solid'
+    }
+  }, [isCheckedDark]);
 
   return (
-    <div className="frame">
+    <div className="frame" id="frame">
       <div className="vanta-container" ref={myRef}></div>
       <div className="GenInfo">
         <header className="siteHeader">
@@ -54,8 +66,8 @@ export default function Home({effect, setEffect, handleClick}) {
             <p
               onClick={() => {
                 setActiveIndex(0);
-                if (effect) {
-                  effect.setOptions({
+                if (vantaEffect) {
+                  vantaEffect.setOptions({
                     maxDistance: 18.0,
                   });
                 }
@@ -69,8 +81,8 @@ export default function Home({effect, setEffect, handleClick}) {
             <p
               onClick={() => {
                 setActiveIndex(1);
-                if (effect) {
-                  effect.setOptions({
+                if (vantaEffect) {
+                  vantaEffect.setOptions({
                     maxDistance: 22.0,
                   });
                 }
@@ -84,8 +96,8 @@ export default function Home({effect, setEffect, handleClick}) {
             <p
               onClick={() => {
                 setActiveIndex(2);
-                if (effect) {
-                  effect.setOptions({
+                if (vantaEffect) {
+                  vantaEffect.setOptions({
                     maxDistance: 26.0,
                   });
                 }
@@ -98,8 +110,8 @@ export default function Home({effect, setEffect, handleClick}) {
           <li>
             <p
               onClick={() => {
-                if (effect)
-                  effect.setOptions({
+                if (vantaEffect)
+                  vantaEffect.setOptions({
                     maxDistance: 30.0,
                   });
                 setActiveIndex(3);
@@ -111,10 +123,10 @@ export default function Home({effect, setEffect, handleClick}) {
           </li>
         </ul>
       </div>
-      {activeIndex === 0 && <Presentation handleClick={handleClick}/>}
-      {activeIndex === 1 && <Projects  handleClick={handleClick}/>}
-      {activeIndex === 2 && <Info  handleClick={handleClick} />}
-      {activeIndex === 3 && <Contact  handleClick={handleClick} />}
+      {activeIndex === 0 && <Presentation />}
+      {activeIndex === 1 && <Projects />}
+      {activeIndex === 2 && <Info />}
+      {activeIndex === 3 && <Contact />}
     </div>
   );
 }

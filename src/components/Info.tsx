@@ -1,7 +1,21 @@
-import { useState } from "react";
-
+import { useEffect } from "react";
+import { useMyContext } from "./MyContext";
 function Info() {
-  const [SVGstyle, setSVGstyle] = useState({});
+  const { isCheckedDark, handleClick, pathColor, setPathColor} =useMyContext()
+  useEffect(() => {
+    const svg = document.querySelector('svg')
+    
+    if (isCheckedDark) {
+      handleClick(true);
+      
+      svg.style.fill = 'white'
+      setPathColor({fill : 'white'})
+    }
+    else{svg.style.fill = "black"
+    setPathColor({})
+   }
+  }, [isCheckedDark]);
+  const { SVGstyle, setSVGstyle} = useMyContext()
   return (
     <div className="info">
       <a
@@ -31,15 +45,9 @@ function Info() {
       <a className="infoLink" href="https://www.linkedin.com/in/loiczeiss/">
         <div className="infoLink_div">
           {" "}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 512 512"
-            id="linkedin"
-          >
-            <path d="M417.2 64H96.8C79.3 64 64 76.6 64 93.9V415c0 17.4 15.3 32.9 32.8 32.9h320.3c17.6 0 30.8-15.6 30.8-32.9V93.9C448 76.6 434.7 64 417.2 64zM183 384h-55V213h55v171zm-25.6-197h-.4c-17.6 0-29-13.1-29-29.5 0-16.7 11.7-29.5 29.7-29.5s29 12.7 29.4 29.5c0 16.4-11.4 29.5-29.7 29.5zM384 384h-55v-93.5c0-22.4-8-37.7-27.9-37.7-15.2 0-24.2 10.3-28.2 20.3-1.5 3.6-1.9 8.5-1.9 13.5V384h-55V213h55v23.8c8-11.4 20.5-27.8 49.6-27.8 36.1 0 63.4 23.8 63.4 75.1V384z"></path>
-          </svg>{" "}
+          <svg  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30">
+    <path style={pathColor}  d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"></path>
+</svg>
           <p style={{ marginLeft: "10px",marginTop :'0px', marginBottom: '0px' }}>LinkedIn</p>
         </div>
       </a>
