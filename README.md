@@ -18,8 +18,8 @@ and contact me.
 - Live Site: (https://loiczeiss.github.io/RetroPokedex/)](https://loiczeiss.github.io/portFolio/)
   
  # Screenshots
-![CapturePortfolio](https://github.com/loiczeiss/portFolio/assets/104260545/905a0ff7-fc15-49b1-80e7-240e95996dd6)
-![portfolio2](https://github.com/loiczeiss/portFolio/assets/104260545/2a1abdca-ab91-4947-8410-8bf74d02cace)
+![CapturePortfolio](https://github.com/loiczeiss/portFolio/assets/104260545/ced29a0e-7f58-445f-9ee3-fef5543e2cd7)
+![portfolio2](https://github.com/loiczeiss/portFolio/assets/104260545/25817921-1efe-43d5-b588-3e8aae99b745)
 
 ## Author
 
