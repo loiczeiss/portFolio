@@ -31,7 +31,7 @@ export default function Home() {
           scaleMobile: 1.0,
           color: 0x655f5f,
           backgroundColor: 0xe1e3ef,
-          points: 6.0,
+          points: 8.0,
           maxDistance: 14.0,
           spacing: 10.0,
         })
