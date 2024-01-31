@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useMyContext } from "./MyContext";
 
 function Projects() {
-  const { isCheckedDark, handleClick } = useMyContext();
+  const { isCheckedDark, handleClick, handleMouseEnter, handleMouseLeave, hoverColor } = useMyContext();
 
   useEffect(() => {
     if (isCheckedDark) {
@@ -21,6 +21,7 @@ function Projects() {
         <a
           className="Projects"
           href="https://loiczeiss.github.io/RetroPokedex/"
+          
         >
           <div className="project_title">RetroPokedex</div>
           <div className="project_info">2023/Reactjs/Tailwindcss/GraphQL</div>

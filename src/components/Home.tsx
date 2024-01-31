@@ -1,6 +1,5 @@
 import "../App.css";
-import { Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import {  useEffect } from "react";
 import NET from "vanta/dist/vanta.net.min.js";
 import Presentation from "./Presentation";
 import Projects from "./Projects";
@@ -32,7 +31,7 @@ export default function Home() {
           scaleMobile: 1.0,
           color: 0x655f5f,
           backgroundColor: 0xe1e3ef,
-          points: 10.0,
+          points: 6.0,
           maxDistance: 14.0,
           spacing: 10.0,
         })

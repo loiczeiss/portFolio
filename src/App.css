@@ -129,6 +129,8 @@ a {
 .content_presentation {
   display: flex;
   align-self: flex-end;
+  justify-content: end;
+  text-align: left;
   width: 20%;
   margin-top: 80px;
   margin-right: 20px;
@@ -145,9 +147,9 @@ a {
   align-self: flex-end;
   margin-top: auto; /* Push the presentationText to the bottom of the column */
   margin-bottom: 20px; /* Adjust as needed */
- 
-  font-size: 20px;
-  font-family: neueMontreal;
+width: 30%;
+  font-size: 14px;
+  font-family: neueMontrealBold;
 }
 
 a:any-link {
@@ -274,16 +276,44 @@ svg {
     align-self: flex-end;
     margin-top: 0;
     width: 80%;
-  
+    overflow: auto;
+margin-bottom: 20px;
+
   
   
 }
 .presentationText {
   align-self: flex-end;
-  margin-top:0;
-  margin-bottom: 0px; /* Adjust as needed */
+  
+  margin-bottom: 20px; /* Adjust as needed */
   margin-left: 0;
-  font-size: 14px;
-  font-family: neueMontreal;
+  font-size: 25px;
+  font-family: neueMontrealBold;
+  width: 100%;
+  overflow: auto; /* Enable vertical scrolling in mobile view */
+
+
 }
+}
+
+
+
+@media screen and (orientation: landscape) {
+  ul{
+    margin-top: 20px;
+  }
+  .content_presentation{
+    width: 50%;
+  }
+  .content{
+    width: 50%;
+  }
+  .project_title{
+    font-size: 45px;
+  }
+  .presentationText {
+
+  width: 50%;
+  
+  }
 }

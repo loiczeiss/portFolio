@@ -8,14 +8,15 @@ const { SVGstyle, setSVGstyle, isCheckedDark, handleClick} = useMyContext()
 useEffect(() => {
   if (isCheckedDark) {
     handleClick(true);
+    setSVGstyle({fill : "white"})
   }
 }, [isCheckedDark]);
 
   return (
     <div className="contact_div">
       <p>Contact me on</p>
-      <div onMouseEnter={()=>{setSVGstyle({fill: "rgb(194, 192, 189)"})}}
-      onMouseLeave={()=>{setSVGstyle({})}} >
+      <div onMouseEnter={()=>{setSVGstyle({fill: "rgb(194, 192, 189)", transition: 'fill 0.3s'})}}
+      onMouseLeave={()=>{setSVGstyle({fill: "white", transition: 'fill 0.3s'})}} >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           enable-background="new 0 0 64 64"
@@ -23,7 +24,7 @@ useEffect(() => {
           id="arrow"
           width={24}
           style={SVGstyle}
-          fill="#000"
+          
           
         >
           <g transform="translate(28 328)">

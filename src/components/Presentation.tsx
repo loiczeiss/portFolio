@@ -6,10 +6,15 @@ function Presentation() {
     <div className="content_presentation">
     <div className="presentationText">
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-      recusandae maiores cum repellendus magni incidunt sunt assumenda
-      ullam, atque corporis debitis nostrum maxime distinctio perferendis
-      eaque at! Explicabo, non quia.
+    Born in 1994 in Tournai, Belgium. <br/>
+         I see websites as personal extensions,
+      offering an immersive journey into our 
+      concepts and visions. 
+      My commitment to web development is rooted 
+      in the belief that technology should seamlessly 
+      reflect the depth of our thoughts,
+      providing an expansive platform for 
+      limitless possibilities.
     </p>
   </div>
   </div>
