@@ -147,7 +147,7 @@ a {
   align-self: flex-end;
   margin-top: auto; /* Push the presentationText to the bottom of the column */
   margin-bottom: 20px; /* Adjust as needed */
-width: 30%;
+width: 200px;
   font-size: 14px;
   font-family: neueMontrealBold;
 }
@@ -298,7 +298,7 @@ margin-bottom: 20px;
 
 
 
-@media screen and (orientation: landscape) {
+@media screen and (max-width:1000px) and (orientation: landscape) {
   ul{
     margin-top: 20px;
   }
