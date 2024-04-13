@@ -1,7 +1,7 @@
 # PortFolio
 
 ## Description
-This portfoliop is an interactive way of entering my webdevelopment universe.
+This portfolio is an interactive way of entering my webdevelopment universe.
 It features a presentation of yours truly, my projects and informations to find
 and contact me.
 
@@ -15,7 +15,7 @@ and contact me.
 - WebGL
 
 ## Links
-- Live Site: (https://loiczeiss.github.io/RetroPokedex/)](https://loiczeiss.github.io/portFolio/)
+- Live Site: (https://loiczeiss.github.io/portFolio/)
   
  # Screenshots
 ![CapturePortfolio](https://github.com/loiczeiss/portFolio/assets/104260545/ced29a0e-7f58-445f-9ee3-fef5543e2cd7)
