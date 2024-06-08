@@ -1,30 +1,27 @@
-# React + TypeScript + Vite
+# PortFolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+This portfolio is an interactive way of entering my webdevelopment universe.
+It features a presentation of yours truly, my projects and informations to find
+and contact me.
 
-Currently, two official plugins are available:
+## Features
+- WebGL 3D effects
+- Light/Dark mode
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Techs used
+- ReactJS
+- VantaJS
+- WebGL
 
-## Expanding the ESLint configuration
+## Links
+- Live Site: (https://loiczeiss.github.io/portFolio/)
+  
+ # Screenshots
+![CapturePortfolio](https://github.com/loiczeiss/portFolio/assets/104260545/ced29a0e-7f58-445f-9ee3-fef5543e2cd7)
+![portfolio2](https://github.com/loiczeiss/portFolio/assets/104260545/25817921-1efe-43d5-b588-3e8aae99b745)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Author
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Website - [Loïc Zeiss](https://github.com/loiczeiss)
+- LinkedIn - (https://www.linkedin.com/in/loiczeiss/)
