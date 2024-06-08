@@ -1,5 +1,5 @@
 import "../App.css";
-import {  useEffect } from "react";
+import { useEffect } from "react";
 import NET from "vanta/dist/vanta.net.min.js";
 import Presentation from "./Presentation";
 import Projects from "./Projects";
@@ -45,10 +45,9 @@ export default function Home() {
   useEffect(() => {
     const border = document.getElementById("frame");
     if (isCheckedDark) {
-    
       border.style.border = "1px white solid";
     } else {
-      border.style.border = '1px black solid'
+      border.style.border = "1px black solid";
     }
   }, [isCheckedDark]);
 

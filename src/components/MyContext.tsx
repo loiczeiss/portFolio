@@ -4,7 +4,7 @@ const MyContext = createContext(null);
 
 export const MyContextProvider = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [SVGstyle, setSVGstyle] = useState({fill : "black"});
+  const [SVGstyle, setSVGstyle] = useState({ fill: "black" });
   const myRef = useRef(null);
   const [darkModeStyle, setDarkModeStyle] = useState<object>({});
   const [vantaEffect, setVantaEffect] = useState<null | any>(null);
@@ -18,18 +18,17 @@ export const MyContextProvider = ({ children }) => {
     marginLeft: "10px",
     marginTop: "0px",
     marginBottom: "0px",
-});
-const [hoverColor2, setHoverColor2] = useState<object>({ marginLeft: "10px",
-marginTop: "0px",
-marginBottom: "0px",})
-
-
-
+  });
+  const [hoverColor2, setHoverColor2] = useState<object>({
+    marginLeft: "10px",
+    marginTop: "0px",
+    marginBottom: "0px",
+  });
 
   const handleClick = (applyChanges) => {
     const allLinks = document.querySelectorAll("a");
     const allParagraphs = document.querySelectorAll("p");
-    const allSVGs = document.querySelectorAll("svg")
+    const allSVGs = document.querySelectorAll("svg");
 
     if (applyChanges) {
       // Apply changes logic
@@ -43,7 +42,7 @@ marginBottom: "0px",})
           link.style.color = "white";
         });
       });
-    
+
       allParagraphs.forEach((paragraph) => {
         paragraph.style.color = "white";
         paragraph.style.transition = "color 0.3s"; // Add transition for smooth color change
@@ -54,8 +53,7 @@ marginBottom: "0px",})
           paragraph.style.color = "white";
         });
       });
-      
-    
+
       vantaEffect.setOptions({ backgroundColor: 0x000000 });
       setDarkModeStyle({ backgroundColor: "black", color: "white" });
       setIsCheckedDark(true);
@@ -67,21 +65,21 @@ marginBottom: "0px",})
         link.removeEventListener("mouseover", () => {});
         link.removeEventListener("mouseout", () => {});
       });
-    
+
       allParagraphs.forEach((paragraph) => {
         paragraph.style.color = ""; // Reset to default
         paragraph.style.transition = ""; // Reset transition
         paragraph.removeEventListener("mouseover", () => {});
         paragraph.removeEventListener("mouseout", () => {});
       });
-    
+
       vantaEffect.setOptions({ backgroundColor: 0xe1e3ef });
       setDarkModeStyle({
         backgroundColor: "hsl(231, 32%, 91%)",
         color: "black",
       });
     }
-}
+  };
 
   const contextValues = {
     activeIndex,
@@ -107,8 +105,8 @@ marginBottom: "0px",})
     hoverColor,
     setHoverColor,
 
-    hoverColor2, setHoverColor2
-
+    hoverColor2,
+    setHoverColor2,
   };
   return (
     <MyContext.Provider value={contextValues}>{children}</MyContext.Provider>

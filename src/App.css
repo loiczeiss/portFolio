@@ -120,7 +120,7 @@ a {
   align-self: flex-start;
   margin-top: 80px;
   margin-right: 20px;
-  max-height: calc(100% - 80px); 
+  max-height: calc(100% - 80px);
   overflow-y: auto; /* Enable vertical scrolling when necessary */
 
   -ms-overflow-style: none; /* IE and Edge */
@@ -135,9 +135,6 @@ a {
   margin-top: 80px;
   margin-right: 20px;
   max-height: calc(100% - 80px); /* Adjust max-height to fit within the frame */
-
-
-
 }
 .content::-webkit-scrollbar {
   display: none;
@@ -147,7 +144,7 @@ a {
   align-self: flex-end;
   margin-top: auto; /* Push the presentationText to the bottom of the column */
   margin-bottom: 20px; /* Adjust as needed */
-width: 200px;
+  width: 200px;
   font-size: 14px;
   font-family: neueMontrealBold;
 }
@@ -178,6 +175,7 @@ a:hover {
 .project_info {
   text-align: end;
   margin-right: 20px;
+ padding-bottom: 10px;
 }
 
 .info {
@@ -221,8 +219,8 @@ svg {
   font-size: 30px;
 }
 
-.pageLinks:hover{
-  color:rgb(194, 192, 189) ;
+.pageLinks:hover {
+  color: rgb(194, 192, 189);
 }
 @media only screen and (max-width: 600px) {
   h1 {
@@ -231,9 +229,6 @@ svg {
   .frame {
     width: 100%;
     flex-direction: column;
-    
-  
-   
   }
   .contact_div {
     align-self: flex-end;
@@ -255,61 +250,77 @@ svg {
   .info {
     align-self: flex-end;
   }
-  .content{
+  .content {
     width: 100%;
     margin-bottom: 20px;
     margin-top: 20px;
-   
-
   }
   .project_title {
     font-size: 20px;
   }
   .project_info {
     font-size: 10px;
+    padding-bottom: 30px;
   }
   .projectDiv {
     margin-bottom: 20px;
   }
-  .content_presentation{
+  .Projects{
+    margin-bottom: 20px;
+  }
+  .content_presentation {
     display: flex;
     align-self: flex-end;
     margin-top: 0;
     width: 80%;
     overflow: auto;
-margin-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  .presentationText {
+    align-self: flex-end;
 
-  
-  
-}
-.presentationText {
-  align-self: flex-end;
-  
-  margin-bottom: 20px; /* Adjust as needed */
-  margin-left: 0;
-  font-size: 25px;
-  font-family: neueMontrealBold;
-  width: 100%;
-  overflow: auto; /* Enable vertical scrolling in mobile view */
-
-
-}
+    margin-bottom: 20px; /* Adjust as needed */
+    margin-left: 0;
+    font-size: 25px;
+    font-family: neueMontrealBold;
+    width: 100%;
+    overflow: auto; /* Enable vertical scrolling in mobile view */
+  }
 }
 
-
-
-@media screen and (max-width:1000px) and (orientation: landscape) {
-  ul{
+@media screen and (max-height: 450px) and (orientation: landscape) {
+  h1{
+    font-size: 30px;
+  }
+  ul {
     margin-top: 20px;
+    font-size: 15px;
+  
   }
-  .content_presentation{
+  li{
+    overflow: scroll;
+  }
+  .pageLinks{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .content_presentation {
+    width: 50%;
+    margin-top: 0px;
+    align-self: center;
+    overflow: scroll;
+  }
+
+  .content {
     width: 50%;
   }
-  .content{
-    width: 50%;
-  }
-  .project_title{
+  .project_title {
     font-size: 45px;
   }
-
 }
+
+/* @media screen and (max-height: 450) and (orientation: landscape){
+ h1{
+  font-size: 30px;
+ }
+} */

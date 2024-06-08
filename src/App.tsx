@@ -5,7 +5,7 @@ import { useMyContext } from "./components/MyContext";
 
 function App() {
   const { darkModeStyle } = useMyContext();
-  console.log(darkModeStyle)
+  console.log(darkModeStyle);
 
   return (
     <>
