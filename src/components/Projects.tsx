@@ -25,6 +25,20 @@ function Projects() {
         </ul>
         <a
           className="Projects"
+          href="https://underachievers.vercel.app/"
+        >
+          <div className="project_title">UnderAchievers</div>
+          <div className="project_info">2025/Next.js/Tailwindcss/Prisma/Supabase/NextAuth/Vercel</div>
+        </a>
+        <a
+          className="Projects"
+          href="https://riviereweather.vercel.app/"
+        >
+          <div className="project_title">WeatherApp 2.0</div>
+          <div className="project_info">2024/Next.js/Tailwindcss/Vercel/RestAPI</div>
+        </a>
+        <a
+          className="Projects"
           href="https://loiczeiss.github.io/RetroPokedex/"
         >
           <div className="project_title">RetroPokedex</div>
