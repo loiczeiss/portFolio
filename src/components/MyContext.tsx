@@ -30,7 +30,11 @@ export const MyContextProvider = ({children}: { children: ReactNode }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const myRef = useRef<HTMLDivElement | null>(null);
     const [vantaEffect, setVantaEffect] = useState<any | null>(null);
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        // Check if user prefers dark mode
+        const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return prefersDarkMode;
+    });
     const [inputChange, setInputChange] = useState<Record<string, any>>({});
     const [lightInputChange, setLightInputChange] = useState<Record<string, any>>({});
     const [pathColor, setPathColor] = useState<Record<string, any>>({});
@@ -45,6 +49,22 @@ export const MyContextProvider = ({children}: { children: ReactNode }) => {
             if (vantaEffect) vantaEffect.setOptions({backgroundColor: 0xe1e3ef});
         }
     }, [isDarkMode, vantaEffect]);
+
+    // Listen for changes in system color scheme preference
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const handleChange = (e: MediaQueryListEvent) => {
+            setIsDarkMode(e.matches);
+        };
+
+        // Add listener for changes
+        mediaQuery.addEventListener('change', handleChange);
+
+        // Clean up listener on component unmount
+        return () => {
+            mediaQuery.removeEventListener('change', handleChange);
+        };
+    }, []);
 
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);

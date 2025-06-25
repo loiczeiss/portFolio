@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://loiczeiss.github.io/portFolio/",
+  "homepage": "https://loiczeiss.github.io/",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "prettier": "^3.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1",

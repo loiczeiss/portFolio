@@ -3,16 +3,16 @@ function Contact() {
 
     return (
         <div
-            className="flex flex-col self-center font-neueMontreal mr-5 text-sm uppercase text-end text-black dark:text-white group dark:group-hover:text-gray-400">
-            <p className="text-black dark:text-white group-hover:fill-gray-500">Contact me on</p>
-            <div className="">
+            className="max-sm:my-auto flex flex-col sm:self-center  font-neueMontreal mr-0 sm:mr-5 text-sm uppercase text-center sm:text-end text-black dark:text-white group dark:group-hover:text-gray-400 px-3 sm:px-0 w-full sm:w-auto">
+            <p className="text-black dark:text-white text-sm md:text-lg group-hover:fill-gray-500">Contact me on</p>
+            <div className="flex flex-row items-center justify-center sm:justify-end flex-wrap">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     enableBackground="new 0 0 64 64"
                     viewBox="0 0 64 64"
                     id="arrow"
                     width={24}
-                    className="fill-black dark:fill-white group-hover:fill-gray-500 dark:group-hover:fill-gray-400 transition-colors duration-300"
+                    className="fill-black dark:fill-white group-hover:fill-gray-500 dark:group-hover:fill-gray-400 mr-1"
                 >
                     <g transform="translate(28 328)">
                         <path
@@ -21,7 +21,7 @@ function Contact() {
                         <path d="M15.3-294.6h-24v-2.8h24z"></path>
                     </g>
                 </svg>
-                <a className="font-neueMontrealBold text-3xl text-black dark:text-white group-hover:text-gray-500 dark:group-hover:text-gray-400 transition-colors duration-300"
+                <a className="font-neueMontrealBold text-xl md:text-3xl text-black dark:text-white group-hover:text-gray-500 dark:group-hover:text-gray-400 break-all"
                    href="mailto:loiczeiss@gmail.com">
                     loiczeiss@gmail.com
                 </a>
