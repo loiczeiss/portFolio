@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: "neueMontreal";
   src: local("neueMontreal"),
@@ -18,9 +22,11 @@
   font-weight: normal;
 }
 
-:root {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+@layer base {
+  :root, html, body, #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
 }

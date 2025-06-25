@@ -1,117 +1,77 @@
-import { createContext, useContext, useState, useRef, useEffect } from "react";
+import React, {
+    createContext,
+    useContext,
+    useState,
+    useRef,
+    ReactNode,
+    useEffect,
+} from "react";
 
-const MyContext = createContext(null);
+interface MyContextProps {
+    activeIndex: number;
+    setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
+    myRef: React.RefObject<HTMLDivElement>;
+    vantaEffect: any | null;
+    setVantaEffect: React.Dispatch<React.SetStateAction<any | null>>;
+    isDarkMode: boolean;
+    setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+    toggleDarkMode: () => void;
+    inputChange: Record<string, any>;
+    setInputChange: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+    lightInputChange: Record<string, any>;
+    setLightInputChange: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+    pathColor: Record<string, any>;
+    setPathColor: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+}
 
-export const MyContextProvider = ({ children }) => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [SVGstyle, setSVGstyle] = useState({ fill: "black" });
-  const myRef = useRef(null);
-  const [darkModeStyle, setDarkModeStyle] = useState<object>({});
-  const [vantaEffect, setVantaEffect] = useState<null | any>(null);
-  const [isCheckedLight, setIsCheckedLight] = useState<boolean>(true);
-  const [isCheckedDark, setIsCheckedDark] = useState<boolean>(false);
-  const [inputChange, setInputChange] = useState<object>({});
-  const [lightInputChange, setLightInputChange] = useState<object>({});
-  const [pathColor, setPathColor] = useState<object>({});
+const MyContext = createContext<MyContextProps | null>(null);
 
-  const [hoverColor, setHoverColor] = useState<object>({
-    marginLeft: "10px",
-    marginTop: "0px",
-    marginBottom: "0px",
-  });
-  const [hoverColor2, setHoverColor2] = useState<object>({
-    marginLeft: "10px",
-    marginTop: "0px",
-    marginBottom: "0px",
-  });
+export const MyContextProvider = ({children}: { children: ReactNode }) => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const myRef = useRef<HTMLDivElement | null>(null);
+    const [vantaEffect, setVantaEffect] = useState<any | null>(null);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [inputChange, setInputChange] = useState<Record<string, any>>({});
+    const [lightInputChange, setLightInputChange] = useState<Record<string, any>>({});
+    const [pathColor, setPathColor] = useState<Record<string, any>>({});
 
-  const handleClick = (applyChanges) => {
-    const allLinks = document.querySelectorAll("a");
-    const allParagraphs = document.querySelectorAll("p");
-    const allSVGs = document.querySelectorAll("svg");
+    // Apply dark mode class to html element
+    useEffect(() => {
+        if (isDarkMode) {
+            document.documentElement.classList.add('dark');
+            if (vantaEffect) vantaEffect.setOptions({backgroundColor: 0x000000});
+        } else {
+            document.documentElement.classList.remove('dark');
+            if (vantaEffect) vantaEffect.setOptions({backgroundColor: 0xe1e3ef});
+        }
+    }, [isDarkMode, vantaEffect]);
 
-    if (applyChanges) {
-      // Apply changes logic
-      allLinks.forEach((link) => {
-        link.style.color = "white";
-        link.style.transition = "color 0.3s"; // Add transition for smooth color change
-        link.addEventListener("mouseover", () => {
-          link.style.color = "gray";
-        });
-        link.addEventListener("mouseout", () => {
-          link.style.color = "white";
-        });
-      });
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+    };
 
-      allParagraphs.forEach((paragraph) => {
-        paragraph.style.color = "white";
-        paragraph.style.transition = "color 0.3s"; // Add transition for smooth color change
-        paragraph.addEventListener("mouseover", () => {
-          paragraph.style.color = "gray";
-        });
-        paragraph.addEventListener("mouseout", () => {
-          paragraph.style.color = "white";
-        });
-      });
+    const contextValues: MyContextProps = {
+        activeIndex,
+        setActiveIndex,
+        myRef,
+        vantaEffect,
+        setVantaEffect,
+        isDarkMode,
+        setIsDarkMode,
+        toggleDarkMode,
+        inputChange,
+        setInputChange,
+        lightInputChange,
+        setLightInputChange,
+        pathColor,
+        setPathColor,
+    };
 
-      vantaEffect.setOptions({ backgroundColor: 0x000000 });
-      setDarkModeStyle({ backgroundColor: "black", color: "white" });
-      setIsCheckedDark(true);
-    } else {
-      // Cancel changes logic
-      allLinks.forEach((link) => {
-        link.style.color = ""; // Reset to default
-        link.style.transition = ""; // Reset transition
-        link.removeEventListener("mouseover", () => {});
-        link.removeEventListener("mouseout", () => {});
-      });
-
-      allParagraphs.forEach((paragraph) => {
-        paragraph.style.color = ""; // Reset to default
-        paragraph.style.transition = ""; // Reset transition
-        paragraph.removeEventListener("mouseover", () => {});
-        paragraph.removeEventListener("mouseout", () => {});
-      });
-
-      vantaEffect.setOptions({ backgroundColor: 0xe1e3ef });
-      setDarkModeStyle({
-        backgroundColor: "hsl(231, 32%, 91%)",
-        color: "black",
-      });
-    }
-  };
-
-  const contextValues = {
-    activeIndex,
-    setActiveIndex,
-    SVGstyle,
-    setSVGstyle,
-    myRef,
-    darkModeStyle,
-    setDarkModeStyle,
-    vantaEffect,
-    setVantaEffect,
-    isCheckedLight,
-    setIsCheckedLight,
-    isCheckedDark,
-    setIsCheckedDark,
-    handleClick,
-    inputChange,
-    setInputChange,
-    lightInputChange,
-    setLightInputChange,
-    pathColor,
-    setPathColor,
-    hoverColor,
-    setHoverColor,
-
-    hoverColor2,
-    setHoverColor2,
-  };
-  return (
-    <MyContext.Provider value={contextValues}>{children}</MyContext.Provider>
-  );
+    return <MyContext.Provider value={contextValues}>{children}</MyContext.Provider>;
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const useMyContext = () => useContext(MyContext);
+export const useMyContext = () => {
+    const context = useContext(MyContext);
+    if (!context) throw new Error("useMyContext must be used within a MyContextProvider");
+    return context;
+};

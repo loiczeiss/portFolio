@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ReactDOM from 'react-dom/client'
 import { MyContextProvider } from './components/MyContext.tsx'
 import App from './App.tsx'
