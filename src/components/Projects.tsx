@@ -1,9 +1,15 @@
 function Projects() {
     // Array of project objects
     const projectsData = [
-        {title: "Reo-groupe",
-        description: "2025/PayloadCMS/Next.js/Tailwindcss/Vercel",
-        url: "https://reo-groupe.fr/"},
+        {
+            title: "Fragments of identity",
+            description: "2025/PeplexityAPI(sonar)/deepgram(STT)/Next.js/Tailwindcss/Vercel",
+            url: "https://ai-entity.vercel.app/"},
+        {
+            title: "Reo-groupe",
+            description: "2025/PayloadCMS/Next.js/Tailwindcss/Vercel",
+            url: "https://reo-groupe.fr/"
+        },
         {
             title: "UnderAchievers",
             description: "2025/Next.js/Tailwindcss/Prisma/Supabase/NextAuth/Vercel",
@@ -56,11 +62,13 @@ function Projects() {
             className="w-full sm:w-[70%] flex self-start md:self-end mt-10 mb-10 sm:mt-20 mr-0 sm:mr-5 max-h-[calc(100%-80px)] overflow-y-auto overflow-x-hidden scrollbar-hide px-3 sm:px-0">
             <div className="mb-5 w-full space-y-4">
                 <ul>
-                    <li className="text-start md:text-end text-xl mr-0 sm:mr-5 text-black dark:text-white">■ Projects</li>
+                    <li className="text-start md:text-end text-xl mr-0 sm:mr-5 text-black dark:text-white">■ Projects
+                    </li>
                 </ul>
                 {projectsData.map((project, index) => (
-                    <div key={index} className="text-start md:text-end font-neueMontreal text-black dark:text-white group w-full">
-                        <a 
+                    <div key={index}
+                         className="text-start md:text-end font-neueMontreal text-black dark:text-white group w-full">
+                        <a
                             href={project.url}
                             className="inline-block w-full group-hover:text-gray-600 dark:group-hover:text-gray-300 space-y-2"
                         >
@@ -78,4 +86,4 @@ function Projects() {
     );
 }
 
-export default Projects;
+    export default Projects;
