@@ -2,9 +2,15 @@ function Projects() {
     // Array of project objects
     const projectsData = [
         {
-            title: "Fragments of identity",
+            title: "Nythis",
             description: "2025/PeplexityAPI(sonar)/deepgram(STT)/Next.js/Tailwindcss/Vercel",
-            url: "https://ai-entity.vercel.app/"},
+            url: "https://ai-entity.vercel.app/"
+        },
+        {
+            title: "L'ambada",
+            description: "2025/PayloadCMS/Next.js/Tailwindcss/Vercel",
+            url: "https://www.residence-lambada.com/"
+        },
         {
             title: "Reo-groupe",
             description: "2025/PayloadCMS/Next.js/Tailwindcss/Vercel",
@@ -86,4 +92,4 @@ function Projects() {
     );
 }
 
-    export default Projects;
+export default Projects;
